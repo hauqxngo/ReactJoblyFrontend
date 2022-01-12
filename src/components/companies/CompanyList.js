@@ -1,30 +1,48 @@
 import React, { useEffect, useState } from "react";
-import JoblyApi from "../../api/JoblyAPI";
-import SearchForm from "../forms/SearchForm";
+import JoblyApi from "../../api/api";
+import CompanySearchForm from "../forms/CompanySearchForm";
+import CompanyCard from "./CompanyCard";
 
-/** Showing the list of all companies from API
+/** Shows the list of all companies from API
  *
  * Search box will filter companies to those matching
  *
- * This component is routed to /companies
+ * Route /companies
+ *
+ * Routes -> {CompanySearchForm, CompanyCard}
  */
 
 const CompanyList = () => {
   const [companies, setCompanies] = useState(null);
 
-  useEffect(function getCompanies() {
-    async function search(name) {
-      let companies = JoblyApi.getCompany(name);
-      setCompanies(companies);
-    }
+  useEffect(function getCompaniesOnMount() {
     search();
   }, []);
+
+  async function search(name) {
+    let companies = await JoblyApi.getCompanies(name);
+    setCompanies(companies);
+  }
 
   if (!companies) return <div>Loading...</div>;
 
   return (
     <div>
-      <SearchForm />
+      <CompanySearchForm searchFor={search} />
+      {companies.length ? (
+        <div>
+          {companies.map((c) => (
+            <CompanyCard
+              key={c.handle}
+              handle={c.handle}
+              name={c.name}
+              description={c.description}
+            />
+          ))}
+        </div>
+      ) : (
+        <p>Sorry, no companies were found.</p>
+      )}
     </div>
   );
 };
