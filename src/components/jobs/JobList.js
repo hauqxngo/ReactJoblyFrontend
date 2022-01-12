@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import JoblyApi from "../../api/api";
-import CompanySearchForm from "../forms/CompanySearchForm";
+import CompanySearchForm from "../companies/CompanySearchForm";
 import Jobs from "../jobs/Jobs";
 
 /** Shows the list of all jobs from API
