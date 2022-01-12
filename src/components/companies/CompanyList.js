@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import JoblyApi from "../../api/api";
 import CompanySearchForm from "../forms/CompanySearchForm";
-import CompanyCard from "./CompanyCard";
+import Companies from "./Companies";
 
 /** Shows the list of all companies from API
  *
@@ -9,7 +9,7 @@ import CompanyCard from "./CompanyCard";
  *
  * Route /companies
  *
- * Routes -> {CompanySearchForm, CompanyCard}
+ * Routes -> {CompanySearchForm, Companies}
  */
 
 const CompanyList = () => {
@@ -32,7 +32,7 @@ const CompanyList = () => {
       {companies.length ? (
         <div>
           {companies.map((c) => (
-            <CompanyCard
+            <Companies
               key={c.handle}
               handle={c.handle}
               name={c.name}

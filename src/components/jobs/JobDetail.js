@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "reactstrap";
 
-const JobCard = ({ id, title, salary, equity }) => {
+const JobDetail = ({ id, title, salary, equity }) => {
   //   const [applied, setApplied] = useState();
 
   return (
@@ -16,4 +16,4 @@ const JobCard = ({ id, title, salary, equity }) => {
   );
 };
 
-export default JobCard;
+export default JobDetail;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import JoblyApi from "../../api/api";
-import JobCardList from "../jobs/JobCardList";
+import Jobs from "../jobs/Jobs";
 
 /** Show the company detail with its job list
  *
@@ -31,7 +31,7 @@ const CompanyDetail = () => {
     <div>
       <h1>{company.name}</h1>
       <p>{company.description}</p>
-      <JobCardList jobs={company.jobs} />
+      <Jobs jobs={company.jobs} />
     </div>
   );
 };

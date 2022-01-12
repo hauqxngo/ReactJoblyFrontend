@@ -1,11 +1,11 @@
 import React from "react";
-import JobCard from "../jobs/JobCard";
+import JobDetail from "./JobDetail";
 
-const JobCardList = ({ jobs }) => {
+const Jobs = ({ jobs }) => {
   return (
     <div>
       {jobs.map((job) => (
-        <JobCard
+        <JobDetail
           key={job.id}
           id={job.id}
           title={job.title}
@@ -18,4 +18,4 @@ const JobCardList = ({ jobs }) => {
   );
 };
 
-export default JobCardList;
+export default Jobs;
