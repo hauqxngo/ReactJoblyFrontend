@@ -34,6 +34,13 @@ class JoblyApi {
 
   // Individual API routes
 
+  /** Get the current user. */
+
+  static async getCurrentUser(username) {
+    let res = await this.request(`users/${username}`);
+    return res.user;
+  }
+
   /** Get companies (filtered by name if not undefined) */
 
   static async getCompanies(name) {
@@ -48,11 +55,38 @@ class JoblyApi {
     return res.company;
   }
 
-  /** Get companies (filtered by name if not undefined) */
+  /** Get jobs (filtered by name if not undefined) */
 
   static async getJobs(title) {
     let res = await this.request("jobs", { title });
     return res.jobs;
+  }
+
+  /** Apply to a job */
+
+  static async apply(username, id) {
+    await this.request(`users/${username}/jobs/${id}`, {}, "post");
+  }
+
+  /** Get token for login from username, password */
+
+  static async login(data) {
+    let res = await this.request(`auth/token`, data, "post");
+    return res.token;
+  }
+
+  /** Sign up */
+
+  static async signup(data) {
+    let res = await this.request(`auth/register`, data, "post");
+    return res.token;
+  }
+
+  /** Save user profile page */
+
+  static async saveProfile(username, data) {
+    let res = await this.request(`users/${username}`, data, "patch");
+    return res.user;
   }
 }
 

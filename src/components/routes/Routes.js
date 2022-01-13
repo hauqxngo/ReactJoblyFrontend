@@ -6,7 +6,7 @@ import CompanyDetail from "../companies/CompanyDetail";
 import JobList from "../jobs/JobList";
 import LoginForm from "../auth/LoginForm";
 import SignupForm from "../auth/SignupForm";
-import EditProfileForm from "../auth/EditProfileForm";
+import ProfileForm from "../auth/ProfileForm";
 import PrivateRoute from "./PrivateRoute";
 
 /** Routes are wrapped by <Private> would only visible when logged in
@@ -38,7 +38,7 @@ const Routes = ({ login, signup }) => {
           <JobList />
         </PrivateRoute>
         <PrivateRoute exact path="/profile">
-          <EditProfileForm />
+          <ProfileForm />
         </PrivateRoute>
 
         <Redirect to="/" />
