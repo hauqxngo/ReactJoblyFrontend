@@ -25,22 +25,24 @@ const CompanySearchForm = ({ searchFor }) => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <FormGroup className="SearchForm">
+      <FormGroup className="SearchForm mx-5">
         <Label for="searchForm"></Label>
         <Input
           id="searchForm"
           name="search"
-          placeholder="Enter search term..."
+          placeholder="Search by name..."
           value={searchTerm}
           onChange={handleChange}
         />
-        <Button type="submit" color="primary">
-          Search
-        </Button>
-        <Button>
-          <Link to="/companies" />
-          Reset
-        </Button>
+        <div className="col text-center my-2">
+          <Button type="submit" color="success">
+            Search
+          </Button>
+          <Button className="mx-1" color="success" outline>
+            <Link to="/companies" />
+            Reset
+          </Button>
+        </div>
       </FormGroup>
     </Form>
   );

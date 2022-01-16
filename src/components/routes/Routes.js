@@ -4,9 +4,9 @@ import Home from "../pages/Home";
 import CompanyList from "../companies/CompanyList";
 import CompanyDetail from "../companies/CompanyDetail";
 import JobList from "../jobs/JobList";
-import LoginForm from "../auth/LoginForm";
-import SignupForm from "../auth/SignupForm";
-import ProfileForm from "../auth/ProfileForm";
+import LoginForm from "../forms/LoginForm";
+import SignupForm from "../forms/SignupForm";
+import ProfileForm from "../forms/ProfileForm";
 import PrivateRoute from "./PrivateRoute";
 
 /** Routes are wrapped by <Private> would only visible when logged in
@@ -19,7 +19,7 @@ const Routes = ({ login, signup }) => {
     <div className="pt-4">
       <Switch>
         <Route exact path="/">
-          <Home />
+          <Home login={login} />
         </Route>
         <Route exact path="/login">
           <LoginForm login={login} />

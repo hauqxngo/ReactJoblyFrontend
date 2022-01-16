@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import JoblyApi from "../../api/api";
 import Jobs from "../jobs/Jobs";
+import Loading from "../navigation/Loading";
 
 /** Show the company detail with its job list
  *
@@ -25,7 +26,7 @@ const CompanyDetail = () => {
     [handle]
   );
 
-  if (!company) return <div>Loading...</div>;
+  if (!company) return <Loading />;
 
   return (
     <div>

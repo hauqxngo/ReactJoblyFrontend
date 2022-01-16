@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import JoblyApi from "../../api/api";
-import CompanySearchForm from "../companies/CompanySearchForm";
+import SearchForm from "../forms/SearchForm";
 import Jobs from "../jobs/Jobs";
+import Loading from "../navigation/Loading";
 
 /** Shows the list of all jobs from API
  *
@@ -9,7 +10,7 @@ import Jobs from "../jobs/Jobs";
  *
  * Route /jobs
  *
- * Routes -> { JobSearchForm, Jobs }
+ * Routes -> { SearchForm, Jobs }
  */
 
 const JobList = () => {
@@ -24,12 +25,17 @@ const JobList = () => {
     setJobs(jobs);
   }
 
-  if (!jobs) return <div>Loading...</div>;
+  if (!jobs) return <Loading />;
 
   return (
     <div>
-      <CompanySearchForm searchFor={search} />
-      {jobs.length ? <Jobs jobs={jobs} /> : <p>Sorry, no jobs were found.</p>}
+      <h3 className="text-center text-success">Top Fake Jobs</h3>
+      <SearchForm searchFor={search} />
+      {jobs.length ? (
+        <Jobs jobs={jobs} />
+      ) : (
+        <p className="mx-5">Sorry, no jobs were found.</p>
+      )}
     </div>
   );
 };

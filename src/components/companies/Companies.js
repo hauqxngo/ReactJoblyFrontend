@@ -9,16 +9,18 @@ import { Card, CardBody, CardTitle, CardText } from "reactstrap";
 
 const Companies = ({ name, description, handle }) => {
   return (
-    <Link to={`/companies/${handle}`}>
-      <div className="CompanyCard">
-        <Card body color="primary" outline>
+    <div className="CompanyCard">
+      <Link className="text-decoration-none" to={`/companies/${handle}`}>
+        <Card body color="secondary mx-5 my-2" outline>
           <CardBody>
-            <CardTitle tag="h5">{name}</CardTitle>
-            <CardText>{description}</CardText>
+            <CardTitle className="text-success" tag="h5">
+              {name}
+            </CardTitle>
+            <CardText className="text-dark">{description}</CardText>
           </CardBody>
         </Card>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 };
 

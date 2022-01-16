@@ -55,45 +55,34 @@ class JoblyApi {
     return res.company;
   }
 
-  /** Get jobs (filtered by name if not undefined) */
-
+  /** Get jobs (filtered by title if not undefined) */
   static async getJobs(title) {
     let res = await this.request("jobs", { title });
     return res.jobs;
   }
 
-  /** Apply to a job */
-
+  // Apply to a job
   static async apply(username, id) {
     await this.request(`users/${username}/jobs/${id}`, {}, "post");
   }
 
-  /** Get token for login from username, password */
-
+  // Get token for login from username, password
   static async login(data) {
     let res = await this.request(`auth/token`, data, "post");
     return res.token;
   }
 
-  /** Sign up */
-
+  // Sign up
   static async signup(data) {
     let res = await this.request(`auth/register`, data, "post");
     return res.token;
   }
 
-  /** Save user profile page */
-
+  // Save user profile
   static async saveProfile(username, data) {
     let res = await this.request(`users/${username}`, data, "patch");
     return res.user;
   }
 }
-
-// for now, put token ("testuser" / "password" on class)
-JoblyApi.token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZ" +
-  "SI6InRlc3R1c2VyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTU5ODE1OTI1OX0." +
-  "FtrMwBQwe6Ue-glIFgz_Nf8XxRT2YecFCiSpYL0fCXc";
 
 export default JoblyApi;

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import UserContext from "../auth/UserContext";
+import UserContext from "../../UserContext";
 import {
   Nav,
   Navbar,
@@ -31,65 +31,54 @@ const NavBar = ({ logout }) => {
   const loggedInNav = () => {
     return (
       <div>
-        {/* <Navbar color="light" expand="md" light>
+        <Navbar color="success" dark expand="md" light>
+          <i class="fas fa-suitcase"></i>
           <NavbarBrand href="/">Jobly</NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
-            <Nav className="ms-auto" navbar> */}
-        <NavItem>
-          <NavLink href="/companies">Companies</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink href="/jobs">Jobs</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink href="/profile">Profile</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink href="/" onClick={logout}>
-            Logout
-          </NavLink>
-        </NavItem>
-        {/* </Nav>
+            <Nav className="ms-auto" navbar>
+              <NavItem>
+                <NavLink href="/companies">Companies</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/jobs">Jobs</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/profile">Profile</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/" onClick={logout}>
+                  Logout, {currentUser.username}
+                </NavLink>
+              </NavItem>
+            </Nav>
           </Collapse>
-        </Navbar> */}
+        </Navbar>
       </div>
     );
   };
   const loggedOutNav = () => {
     return (
       <div>
-        {/* <Navbar color="light" expand="md" light>
+        <Navbar color="success" dark expand="md" light>
           <NavbarBrand href="/">Jobly</NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
-            <Nav className="ms-auto" navbar> */}
-        <NavItem>
-          <NavLink href="/login">Login</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink href="/signup">Sign Up</NavLink>
-        </NavItem>
-        {/* </Nav>
+            <Nav className="ms-auto" navbar>
+              <NavItem>
+                <NavLink href="/login">Login</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/signup">Sign Up</NavLink>
+              </NavItem>
+            </Nav>
           </Collapse>
-        </Navbar> */}
+        </Navbar>
       </div>
     );
   };
 
-  return (
-    <div>
-      <Navbar color="light" expand="md" light>
-        <NavbarBrand href="/">Jobly</NavbarBrand>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="ms-auto" navbar>
-            {currentUser ? loggedInNav() : loggedOutNav()}
-          </Nav>
-        </Collapse>
-      </Navbar>
-    </div>
-  );
+  return <div>{currentUser ? loggedInNav() : loggedOutNav()}</div>;
 };
 
 export default NavBar;

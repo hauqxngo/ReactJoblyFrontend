@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import JoblyApi from "../../api/api";
-import CompanySearchForm from "./CompanySearchForm";
+import SearchForm from "../forms/SearchForm";
 import Companies from "./Companies";
+import Loading from "../navigation/Loading";
 
 /** Shows the list of all companies from API
  *
  * Search box will filter companies to those matching
  *
- * Route /companies
+ * Routed as /companies
  *
- * Routes -> {CompanySearchForm, Companies}
+ * Routes -> {SearchForm, Companies}
  */
 
 const CompanyList = () => {
@@ -24,11 +25,12 @@ const CompanyList = () => {
     setCompanies(companies);
   }
 
-  if (!companies) return <div>Loading...</div>;
+  if (!companies) return <Loading />;
 
   return (
     <div>
-      <CompanySearchForm searchFor={search} />
+      <h3 className="text-center text-success">Top Fake Companies</h3>
+      <SearchForm searchFor={search} />
       {companies.length ? (
         <div>
           {companies.map((c) => (
@@ -41,7 +43,7 @@ const CompanyList = () => {
           ))}
         </div>
       ) : (
-        <p>Sorry, no companies were found.</p>
+        <p className="mx-5">Sorry, no companies were found.</p>
       )}
     </div>
   );

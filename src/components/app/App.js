@@ -6,9 +6,9 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import JoblyApi from "../../api/api";
 import jwt from "jsonwebtoken";
-import UserContext from "../auth/UserContext";
+import UserContext from "../../UserContext";
 import Loading from "../navigation/Loading";
-import useLocalStorage from "../hooks/useLocalStorage";
+import useLocalStorage from "../../hooks/useLocalStorage";
 
 // Key name for storing token in localStorage to stay logged in
 export const TOKEN_STORAGE_ID = "jobly-token";
@@ -63,20 +63,15 @@ function App() {
     [token]
   );
 
-  // handles logout
-  const logout = () => {
-    setCurrentUser(null);
-    setToken(null);
-  };
-
   // handles signup & automatically logs in after that
   async function signup(data) {
     try {
       let token = await JoblyApi.signup(data);
       setToken(token);
       return { success: true };
-    } catch (err) {
-      return { success: false, err };
+    } catch (errors) {
+      console.error("signup failed", errors);
+      return { success: false, errors };
     }
   }
 
@@ -86,10 +81,16 @@ function App() {
       let token = await JoblyApi.login(data);
       setToken(token);
       return { success: true };
-    } catch (err) {
-      return { success: false, err };
+    } catch (errors) {
+      return { success: false, errors };
     }
   }
+
+  // handles logout
+  const logout = () => {
+    setCurrentUser(null);
+    setToken(null);
+  };
 
   // checks if a job has been applied
   const hasApplied = (id) => {
