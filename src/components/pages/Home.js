@@ -8,7 +8,7 @@ const Home = ({ login }) => {
   async function handleSubmit(e) {
     e.preventDefault();
     await login({
-      username: "testuser",
+      username: "testuser2",
       password: "password",
     });
     history.push("/companies");

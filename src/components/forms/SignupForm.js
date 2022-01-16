@@ -93,9 +93,9 @@ const SignupForm = ({ signup }) => {
   };
 
   return (
-    <div className="col-md-4">
-      <h3>Sign Up</h3>
-      <Form onSubmit={handleSubmit} inline>
+    <div className="col-md-4 col-lg-4 offset-md-3 offset-lg-4">
+      <h3 className="text-success text-center">Sign Up</h3>
+      <Form className="mx-5" onSubmit={handleSubmit} inline>
         <FormGroup floating>
           <Input
             id="username"
@@ -172,9 +172,11 @@ const SignupForm = ({ signup }) => {
           )}
         </FormGroup>{" "}
         {errors.length ? <Message type="danger" messages={errors} /> : null}
-        <Button color="success" disabled={!isValid}>
-          Sign Up
-        </Button>
+        <div className="col text-center my-2">
+          <Button color="success" disabled={!isValid}>
+            Sign Up
+          </Button>
+        </div>
       </Form>
     </div>
   );

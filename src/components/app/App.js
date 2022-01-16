@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Routes from "../routes/Routes";
 import NavBar from "../navigation/NavBar";
 import { BrowserRouter } from "react-router-dom";
-import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import JoblyApi from "../../api/api";
 import jwt from "jsonwebtoken";

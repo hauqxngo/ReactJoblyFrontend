@@ -30,8 +30,8 @@ const CompanyDetail = () => {
 
   return (
     <div>
-      <h1>{company.name}</h1>
-      <p>{company.description}</p>
+      <h1 className="text-success text-center">{company.name}</h1>
+      <p className="text-center">{company.description}</p>
       <Jobs jobs={company.jobs} />
     </div>
   );
