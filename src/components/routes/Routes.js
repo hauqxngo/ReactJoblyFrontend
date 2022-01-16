@@ -8,6 +8,7 @@ import LoginForm from "../forms/LoginForm";
 import SignupForm from "../forms/SignupForm";
 import ProfileForm from "../forms/ProfileForm";
 import PrivateRoute from "./PrivateRoute";
+import ProtectingRoute from "./ProtectingRoute";
 
 /** Routes are wrapped by <Private> would only visible when logged in
  *
@@ -21,12 +22,12 @@ const Routes = ({ login, signup }) => {
         <Route exact path="/">
           <Home login={login} />
         </Route>
-        <Route exact path="/login">
+        <ProtectingRoute exact path="/login">
           <LoginForm login={login} />
-        </Route>
-        <Route exact path="/signup">
+        </ProtectingRoute>
+        <ProtectingRoute exact path="/signup">
           <SignupForm signup={signup} />
-        </Route>
+        </ProtectingRoute>
 
         <PrivateRoute exact path="/companies">
           <CompanyList />
