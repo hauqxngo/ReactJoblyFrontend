@@ -6,7 +6,7 @@ import Loading from "../navigation/Loading";
 
 /** Show the company detail with its job list
  *
- * Route /companies/:handle
+ * Routed as /companies/:handle
  *
  * Routes -> CompanyDetail -> JobList
  */

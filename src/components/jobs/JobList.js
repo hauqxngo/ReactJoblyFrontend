@@ -8,7 +8,7 @@ import Loading from "../navigation/Loading";
  *
  * Search box will filter companies to those matching
  *
- * Route /jobs
+ * Routed as /jobs
  *
  * Routes -> { SearchForm, Jobs }
  */

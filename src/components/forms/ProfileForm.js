@@ -59,14 +59,14 @@ const ProfileForm = () => {
     setCurrentUser(updatedUser);
   }
 
-  function handleChange(e) {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((formData) => ({
       ...formData,
       [name]: value,
     }));
     setErrors([]);
-  }
+  };
 
   return (
     <div className="col-md-4 col-lg-4 offset-md-3 offset-lg-4">
@@ -116,7 +116,7 @@ const ProfileForm = () => {
 
         <FormGroup className="mb-2 me-sm-2 mb-sm-0 my-3">
           <Label className="me-sm-2" for="password">
-            Enter your password to confirm:
+            New Password
           </Label>
           <Input
             id="password"
@@ -133,9 +133,18 @@ const ProfileForm = () => {
           <Message type="success" messages={["Updated successfully."]} />
         ) : null}
 
-        <Button color="success my-4" outline block>
-          Save Changes
-        </Button>
+        {currentUser.username !== "demo_user" ? (
+          <Button color="success my-4" outline block>
+            Save Changes
+          </Button>
+        ) : (
+          <span className="text-danger">
+            <Button color="success mt-4" outline block disabled>
+              Save Changes
+            </Button>
+            Please sign up to change your own profile =)
+          </span>
+        )}
       </Form>
     </div>
   );

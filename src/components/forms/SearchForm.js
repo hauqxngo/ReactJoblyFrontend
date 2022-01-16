@@ -4,7 +4,7 @@ import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 
 /** Search box in Company List page
  *
- * CompanyList -> CompanySearchForm
+ * CompanyList -> SearchForm
  */
 
 const CompanySearchForm = ({ searchFor }) => {

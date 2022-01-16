@@ -7,7 +7,7 @@ import React from "react";
 
 const Message = ({ type = "danger", messages = [] }) => {
   return (
-    <div className={`alert alert-${type}`} role="alert">
+    <div className={`alert alert-${type} mt-3`} role="alert">
       {messages.map((err) => (
         <p className="mb-0 small" key={err}>
           {err}

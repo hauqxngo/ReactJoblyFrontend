@@ -11,7 +11,7 @@ import Message from "./Message";
  *
  * Routed as /login
  *
- * Routes -> LoginForm -> Alert
+ * Routes -> LoginForm -> Message
  */
 
 const LoginForm = ({ login }) => {

@@ -3,7 +3,16 @@ import { Button } from "reactstrap";
 import UserContext from "../../UserContext";
 import { Card, CardBody, CardText, CardTitle } from "reactstrap";
 
-const JobDetail = ({ id, title, salary, equity }) => {
+/** Show limited information about a job.
+ *
+ * Is rendered by Jobs to show a "card" for each job.
+ *
+ * Receives apply func prop from parent, which is called on apply.
+ *
+ * Jobs -> JobDetail
+ */
+
+const JobDetail = ({ id, title, salary, equity, companyName }) => {
   const [applied, setApplied] = useState();
   const { hasApplied, apply } = useContext(UserContext);
 
@@ -28,6 +37,7 @@ const JobDetail = ({ id, title, salary, equity }) => {
           <CardTitle className="text-success" tag="h5">
             {title}
           </CardTitle>
+          <h6>{companyName}</h6>
           <CardText className="text-dark">
             <p>Salary: {salary === null ? "Negotiable" : `$${salary}`}</p>
             <p>Equity: {equity === null ? "N/A" : equity}</p>

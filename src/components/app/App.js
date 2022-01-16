@@ -62,6 +62,12 @@ function App() {
     [token]
   );
 
+  // handles logout
+  const logout = () => {
+    setCurrentUser(null);
+    setToken(null);
+  };
+
   // handles signup & automatically logs in after that
   async function signup(data) {
     try {
@@ -84,12 +90,6 @@ function App() {
       return { success: false, errors };
     }
   }
-
-  // handles logout
-  const logout = () => {
-    setCurrentUser(null);
-    setToken(null);
-  };
 
   // checks if a job has been applied
   const hasApplied = (id) => {
